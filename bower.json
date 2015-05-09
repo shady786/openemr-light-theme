@@ -1,0 +1,7 @@
+{
+  "name": "openemr-theme-light",
+  "version": "0.0.1",
+  "dependencies": {
+    "foundation": "zurb/bower-foundation"
+  }
+}
