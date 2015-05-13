@@ -4,28 +4,52 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     compass: {
-      dist: {
+      options: {
+        outputStyle: 'compressed',
+        noLineComments: true,
+        sourcemap: true
+      },
+      foundation: {
         options: {
-          sassDir: './scss',
-          cssDir: './css',
+          sassDir: 'vendor/foundation/scss',
+          cssDir: 'build',
         }
       }
 		},
-    uglify: {
+    concat: {
+      dist: {
+        src: ['build/*.css'],
+        dest: 'css/style_light.css'
+      }
+    },
+    cssmin: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        shorthandCompacting: false,
+        roundingPrecision: -1
       },
-      build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'build',
+          src: ['*.css', '!*.min.css'],
+          dest: 'build/',
+          ext: '.min.css'
+        }]
+      }
+    },
+    clean: {
+      dist: {
+        src: 'build'
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['compass']);
+  grunt.registerTask('default', ['compass', 'cssmin', 'concat', 'clean']);
 
 };
