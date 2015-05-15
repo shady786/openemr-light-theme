@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       },
       foundation: {
         options: {
-          sassDir: 'vendor/foundation/scss',
+          sassDir: 'scss/',
           cssDir: 'build',
         }
       }
