@@ -1,14 +1,21 @@
-== Starlight ==
+== OpenEMR Starlight Theme ==
 
-This is a modern theme for the OpenEMR project. It uses the Foundation framework as a base.
+This is a modern theme for the OpenEMR project. It uses the Foundation framework
+as a base.
 
 === Installing ===
-This repo contains the various components needed to build a final style_light.css. To install into a working OpenEMR instance you can either download a zipped release from the releases page or clone the repo locally and build yourself. Once you have the style_starlight.css place it in <openemr_base_dir>/interface/themes/ directory.
+This repo contains the various components needed to build a final 
+style_light.css. To install into a working OpenEMR instance you can either 
+download a zipped release from the releases page or clone the repo locally and 
+build yourself. Once you have the style_starlight.css place it in 
+<openemr_base_dir>/interface/themes/ directory.
 
-==== Building ====
-Starlight uses http://gruntjs.com/[Grunt] to build the final output and http://bower.io/[Bower] manage dependencies. You do not need to be familiar with these to build the final css, but they must be installed.
+=== Building ===
+Starlight uses http://gruntjs.com/[Grunt] to build the final output and 
+http://bower.io/[Bower] manage dependencies. You do not need to be familiar with
+these to build the final css, but they must be installed.
 
-===== Steps to build =====
+==== Steps to build ====
 (From root of starlight dir)
 
 * Install required node packages
@@ -21,4 +28,28 @@ npm install
 bower install
 grunt
 ----
+
+=== Contributing ===
+Contributions are welcome, fork, edit, submit a pull request
+
+=== License ===
+A full copy of the license can be viewed on the link:LICENSE[license page].
+
+OpenEMR Starlight Theme
+Copyright (C) 2015 Robert Down Jr
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 

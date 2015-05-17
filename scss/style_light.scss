@@ -2,14 +2,16 @@
 @import "compass";
 @import "normalize";
 @import 'foundation/components/grid';
+@import 'foundation/components/alert-boxes';
 @import 'foundation/components/buttons';
 @import 'foundation/components/button-groups';
 @import 'foundation/components/type';
 @import 'foundation/components/labels';
 @import 'foundation/components/sub-nav';
+@import 'foundation/components/tables';
 
 $black: #555;
-$white: #fff;
+$white: rgb(250,250,250);
 $dark-grey: #ddd;
 $light-grey: #F9F9F9;
 $off-white: #fdfdfd;
@@ -36,6 +38,11 @@ body {
   font-family: $default-font-family;
   font-size: $default-font-size;
   background-color: $off-white;
+}
+
+.row-fluid {
+  @include grid-row();
+  max-width: 100%;
 }
 
 a, a:visited {
@@ -206,10 +213,46 @@ a, a:visited {
   background: url("../pic/aquabg.gif") repeat;
 }
 
-// $table_bg
-.table_bg {
-  background-color: #ccc;
+.table {
+  background-color: $table-bg;
+  border: $table-border-size $table-border-style $table-border-color;
+  line-height: $table-line-height;
+  display: $table-display;
+  margin-bottom: $table-margin-bottom;
+
+  thead {
+    background-color: $table-head-bg;
+    font-size: $table-head-font-size;
+    font-weight: $table-head-font-weight;
+    padding: $table-head-padding;
+  }
+
+  tr {
+    padding: $table-row-padding;
+    font-size: $table-row-font-size;
+    color: $table-row-font-color;
+    &:even {
+      background-color: $table-even-row-bg;
+    }
+
+    &:odd {
+      background-color: $table-bg;
+    }
+  }
 }
+
+// These control the table foot styles
+$table-foot-bg: $table-head-bg;
+$table-foot-font-size: $table-head-font-size;
+$table-foot-font-color: $table-head-font-color;
+$table-foot-font-weight: $table-head-font-weight;
+$table-foot-padding: $table-head-padding;
+
+// These control the caption
+$table-caption-bg: transparent;
+$table-caption-font-color: $table-head-font-color;
+$table-caption-font-size: rem-calc(16);
+$table-caption-font-weight: bold;
 
 // $GLOBALS['style']['BGCOLOR1']
 .bgcolor1 {
@@ -701,11 +744,13 @@ a, a:visited {
 }
 
 .css_button {
-  @include button;
-  // span {
-  //   line-height: 14px;
-  //   padding: 5px 0 5px 10px;
-  // }
+  @include button(rem-calc(5));
+  color: $white;
+  &.alert     { @include button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
+  span {
+    line-height: inherit;
+    padding: 0;
+  }
 }
 
 .css_button_alert {
@@ -838,7 +883,6 @@ div.notab-right {
 
 .section-header {
   @include section_header;
-  width: 685px;
 }
 
 .section-header-dynamic {
