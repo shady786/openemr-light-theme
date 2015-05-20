@@ -1,5 +1,4 @@
 .sass-cache
-*.css.map
 vendor/*
 !vendor/.gitkeep
 node_modules/*

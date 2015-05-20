@@ -1,4 +1,4 @@
-== OpenEMR Starlight Theme ==
+== OpenEMR Light Theme ==
 
 This is a modern theme for the OpenEMR project. It uses the Foundation framework
 as a base.
@@ -16,17 +16,14 @@ http://bower.io/[Bower] manage dependencies. You do not need to be familiar with
 these to build the final css, but they must be installed.
 
 ==== Steps to build ====
-(From root of starlight dir)
-
-* Install required node packages
-* Run bower to retrieve dependencies
-* Run grunt to build css
-* Compiled CSS file is located under css/
+https://nodejs.org/download/[Install Node]
 
 ----
-npm install
-bower install
-grunt
+$ git clone git@github.com:robertdown/openemr-light-theme.git .
+$ cd openemr-light-theme
+$ npm install // Installs Grunt and Bower from npm via package.json
+$ bower install // Grabs the various assets (i.e. Foundation)
+$ grunt // Build files and place final output to css/style_light.css
 ----
 
 === Contributing ===
@@ -35,7 +32,7 @@ Contributions are welcome, fork, edit, submit a pull request
 === License ===
 A full copy of the license can be viewed on the link:LICENSE[license page].
 
-OpenEMR Starlight Theme
+OpenEMR Light Theme
 Copyright (C) 2015 Robert Down Jr
 
 This program is free software; you can redistribute it and/or modify
