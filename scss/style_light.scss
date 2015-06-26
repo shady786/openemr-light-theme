@@ -9,6 +9,9 @@
 @import 'foundation/components/labels';
 @import 'foundation/components/sub-nav';
 @import 'foundation/components/tables';
+@import 'foundation/components/panels';
+@import 'foundation/components/forms';
+@import "foundation/components/tabs";
 
 $black: #555;
 $white: rgb(250,250,250);
@@ -67,6 +70,50 @@ a, a:visited {
   background-image: -webkit-linear-gradient(right, rgb(252, 252, 252) 79%, rgb(240, 245, 250) 100%);
   background-image: -ms-linear-gradient(right, rgb(252, 252, 252) 79%, rgb(240, 245, 250) 100%);
   background-image: linear-gradient(to right, rgb(252, 252, 252) 79%, rgb(240, 245, 250) 100%);
+}
+
+.panel-sm {
+  @include panel($white, 4);
+  border-color: transparent;
+}
+
+.panel-with-heading {
+  @include panel($panel-bg, 0, true);
+  div {
+    padding: 10px;
+  }
+  .header {
+    width:100%;
+    background: $primary-color;
+    color: $white;
+  }
+}
+
+.ribbon {
+  @include sub-nav();
+
+  background-color: $nav-bg;
+
+  dd {
+    display: inline-block;
+
+    a {
+      padding:6px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid transparent;
+
+      &:hover {
+        border-color: #f0c35e;
+        @include background(linear-gradient(to bottom, #fffab1, darken(#fffab1, 2%)))
+      }
+
+      i {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .menu {
