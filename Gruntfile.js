@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     compass: {
       options: {
-        outputStyle: 'compressed',
+        outputStyle: 'nested',
         noLineComments: true,
         sourcemap: true
       },
@@ -50,6 +50,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['compass', 'cssmin', 'concat', 'clean']);
+  //grunt.registerTask('default', ['compass', 'cssmin', 'concat', 'clean']);
+  grunt.registerTask('default', ['compass', 'concat', 'clean']);
 
 };
