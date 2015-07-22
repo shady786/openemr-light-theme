@@ -16,7 +16,7 @@
 
 $black: #555;
 $white: rgb(250,250,250);
-$dark-grey: #ddd;
+$dark-grey: #AAA;
 $light-grey: #F9F9F9;
 $off-white: #fdfdfd;
 $font-family-sans-serif: "ubunturegular", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
@@ -113,18 +113,26 @@ a, a:visited {
       }
     }
     ul {
-      padding-left: 30px !important;
+      padding-left: 15px !important;
     }
     .fa {
       color: $blue;
     }
     .collapsed_lv2:before {
-      font-family: FontAwesome;
-      content: "\f7077";
+      font-family: 'ubunturegular';
+      font-size: 0.60rem;
+      color: $dark-grey;
+      display:inline-block;
+      padding-right:3px;
+      content: "\25B6";
     }
     .expanded_lv2:before {
-      font-family: FontAwesome;
-      content: "\f7078";
+      font-family: 'ubunturegular';
+      font-size: 0.70rem;
+      color: $dark-grey;
+      display:inline-block;
+      padding-right:3px;
+      content: "\25BC";
     }
     .collapsed_lv2, .expanded_lv2 {
       background: none !important;
