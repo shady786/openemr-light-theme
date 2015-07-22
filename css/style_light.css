@@ -2705,6 +2705,9 @@ input {
   display: inline !important;
   width: normal; }
 
+select {
+  color: #555; }
+
 .panel-sm {
   border-style: solid;
   border-width: 1px;
