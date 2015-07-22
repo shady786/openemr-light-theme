@@ -78,6 +78,10 @@ input {
   width: normal;
 }
 
+select {
+  color: $black;
+}
+
 .panel-sm {
   @include panel($white, 4);
   border-color: transparent;
