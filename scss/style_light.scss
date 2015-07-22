@@ -12,13 +12,15 @@
 @import 'foundation/components/panels';
 //@import 'foundation/components/forms';
 @import "foundation/components/tabs";
+@import "font";
 
 $black: #555;
 $white: rgb(250,250,250);
 $dark-grey: #ddd;
 $light-grey: #F9F9F9;
 $off-white: #fdfdfd;
-$default-font-family: sans-serif;
+$font-family-sans-serif: "ubunturegular", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$default-font-family: "ubunturegular", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;;
 $default-font-size: 16px;
 $brand-color: $dark-grey;
 
