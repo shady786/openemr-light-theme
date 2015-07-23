@@ -309,7 +309,12 @@ select {
 
 .bgcolor2 {
   background-color: $white;
-  padding: 5px;
+  padding: 0px;
+
+  dl {
+    background-color: $blue;
+  }
+
 }
 
 .body_bottom {
@@ -733,8 +738,8 @@ $table-caption-font-weight: bold;
   .encounters td {
     padding: 2px;
   }
-  .encounter_forms {
-    margin: 5px 15px 5px 15px;
+  #encounter_forms {
+    padding: 0px 10px;
   }
   td {
     vertical-align: top;
@@ -840,15 +845,13 @@ $table-caption-font-weight: bold;
   background-color: $button-bg-color;
   color: $white !important;
   display: block;
+  font-size: 14px;
   float: left;
   margin-right: 3px;
   text-decoration: none;
-  text-transform: uppercase;
+  text-align: center;
   /* sliding doors padding */
-  padding-right: 10px;
-  span {
-    display: block;
-  }
+  padding: 5px 10px;
   &:hover {
     background: darken($button-bg-color, 10%);
     color: $white;
@@ -857,23 +860,14 @@ $table-caption-font-weight: bold;
 
 .css_button_small {
   @include standard_button;
-  font-size: 9px;
-  font-weight: bold;
-  height: 19px;
-  span {
-    line-height: 19px;
-    padding: 0 0 0 10px;
-  }
+  font-size: 12px;
 }
 
 .css_button {
   @include button(rem-calc(5));
+  padding: 5px 10px !important;
   color: $white !important;
   &.alert     { @include button-style($bg:$alert-color, $bg-hover:$alert-button-bg-hover, $border-color:$alert-button-border-color); }
-  span {
-    line-height: inherit;
-    padding: 0;
-  }
 }
 
 .css_button_alert {
@@ -1171,7 +1165,7 @@ div.notab-right {
 #sddm {
   li {
     margin: 0;
-    padding: 0;
+    padding: 10px 0px 0px 0px;
     list-style: none;
     float: left;
     a {
@@ -1179,7 +1173,7 @@ div.notab-right {
       text-transform: uppercase;
       margin: 0 1px 0 0;
       padding: 4px 10px;
-      color: $black;
+      color: $white;
       text-align: left;
       text-decoration: none;
       font-size: 0.8em;
@@ -1212,13 +1206,11 @@ div.notab-right {
       color: #2875DE;
       font-weight: normal;
       &:hover {
-        background: $light-grey;
+        background: $link-nav-hover-color;
       }
     }
   }
 }
-
-//#sddm li a:hover
 
 .text-area {
   background-color: #FFFFFF;
