@@ -1,7 +1,22 @@
 {
-  "name": "openemr-theme-light",
-  "version": "0.0.1",
+  "name": "openemr-light-theme",
+  "homepage": "https://github.com/robertdown/openemr-light-theme",
+  "authors": [
+    "Robert Down <robertdown@live.com>"
+  ],
+  "description": "Light, modern theme for OpenEMR based on Bootstrap",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "bootstrap-sass": "~3.3.6"
   }
 }
