@@ -1,11 +1,14 @@
 var gulp = require('gulp'),     
     sass = require('gulp-ruby-sass') 
     notify = require("gulp-notify") 
-    bower = require('gulp-bower');
+    bower = require('gulp-bower'),
+    gulpCopy = require('gulp-copy');;
 
 var config = {
      sassPath: './sass',
-     bowerDir: './bower_components' 
+     bowerDir: './bower_components' ,
+    outputPath: './css',
+    openemrPath: '/srv/openemr/interface/themes'
 };
 
 gulp.task('bower', function() { 
@@ -14,18 +17,18 @@ gulp.task('bower', function() { 
 });
 
 gulp.task('css', function() { 
-    return gulp.src(config.sassPath + '/style.scss')
-         .pipe(sass({
-             style: 'compressed',
+    return sass(config.sassPath + '/*', {
+             style: 'expanded',
              loadPath: [
                  './sass',
                  config.bowerDir + '/bootstrap-sass/assets/stylesheets',
+                config.bowerDir + '/font-awesome/scss'
              ]
-         }) 
-            .on("error", notify.onError(function (error) {
+            }) 
+        .on("error", notify.onError(function (error) {
                  return "Error: " + error.message;
-             }))) 
-         .pipe(gulp.dest('./public/css')); 
+             }))
+         .pipe(gulp.dest(config.outputPath)); 
 });
 
 // Rerun the task when a file changes
