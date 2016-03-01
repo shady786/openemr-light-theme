@@ -8,7 +8,6 @@ var config = {
      sassPath: './sass',
      bowerDir: './bower_components' ,
     outputPath: './css',
-    openemrPath: '/srv/openemr/interface/themes'
 };
 
 gulp.task('bower', function() { 
