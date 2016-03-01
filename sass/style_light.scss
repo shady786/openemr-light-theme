@@ -1,8 +1,3 @@
-@import '_font';
-@import 'font-awesome';
-
-$fa-font-path: "../bower_components/font-awesome/fonts" !default;
-
 $white: #ffffff;
 $off-white: #f4f4f4;
 $off-black: #444444;
@@ -34,7 +29,6 @@ a {
 }
 
 .menu {
-    font-family: sans-serif;
     font-style: italic;
     font-size: 11pt;
     color: #0000cc;
@@ -43,7 +37,6 @@ a {
 }
 
 .menu_selected {
-    font-family: sans-serif;
     font-style: italic;
     font-size: 11pt;
     color: #000000;
@@ -52,7 +45,6 @@ a {
 }
 
 .logout {
-    font-family: sans-serif;
     font-style: italic;
     font-size: 11pt;
     color: #000000;
@@ -61,14 +53,12 @@ a {
 }
 
 .text {
-    font-family: sans-serif;
     text-decoration: none;
     color: #000000;
     font-size: 10pt;
 }
 
 .required {
-    font-family: sans-serif;
     text-decoration: none;
     font-size: 10pt;
     color: #880000;
@@ -76,7 +66,6 @@ a {
 }
 
 .bold {
-    font-family: sans-serif;
     text-decoration: none;
     font-size: 10pt;
     color: #000000;
@@ -84,7 +73,6 @@ a {
 }
 
 .alert {
-    font-family: sans-serif;
     font-size: 70%;
     color: #FF0000;
     text-decoration: none;
@@ -93,45 +81,38 @@ a {
 .small {
     text-decoration: none;
     color: #000000;
-    font-family: sans-serif;
     font-size: 80%;
 }
 
 .link {
-    font-family: sans-serif;
     text-decoration: none;
     color: #0000cc;
     font-size: 70%;
 }
 
 .more {
-    font-family: sans-serif;
     text-decoration: none;
     font-size: 70%;
 }
 
 .back {
-    font-family: sans-serif;
     text-decoration: none;
     font-size: 70%;
 }
 
 .link_selected {
-    font-family: sans-serif;
     text-decoration: none;
     color: #0000FF;
     font-size: 70%;
 
     &:visited {
-        font-family: sans-serif;
-        text-decoration: none;
+            text-decoration: none;
         color: #0000FF;
         font-size: 70%;
     }
 }
 
 .link_submit {
-    font-family: sans-serif;
     text-decoration: none;
     color: #000077;
     font-size: 10pt;
@@ -148,17 +129,16 @@ a {
 }
 
 .items {
-    font-family: sans-serif;
     font-size: 6pt;
 }
 
 .title {
+    font-family: 'ubunturegular' !important;
     font-size: 1.5em;
 }
 
 /* see .titlebar below */
 .title_bar {
-    font-family: sans-serif;
     font-size: 12pt;
     font-weight: bold;
     text-decoration: none;
@@ -166,7 +146,6 @@ a {
 }
 
 .title_bar_top {
-    font-family: sans-serif;
     font-size: 13px;
     font-weight: bold;
     text-decoration: none;
@@ -945,7 +924,6 @@ font-size:9pt;
 
 /* Style for red font */
 .redtext {
-    font-family: sans-serif;
     text-decoration: none;
     color: #FF0000;
     font-size: 10pt;
