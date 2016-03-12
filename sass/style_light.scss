@@ -1,20 +1,46 @@
-$white: #ffffff;
-$off-white: #f4f4f4;
-$off-black: #444444;
-// $deep-blue: #4f98fb;
-$deep-blue: rgba(0,60,128,0.82);
+@import "_fonts";
+
+// Site-wide color values
+$white:      #ffffff;
+$off-white:  #f4f4f4;
+$off-black:  #444444;
+$deep-blue:  #2a4e84;
+// $deep-blue: rgba(0,60,128,0.82);
 $light-blue: #CBE6F7;
-$light-gray: #f0f0f0;
-$dark-gray: #d7d7d7;
-$blue: #2672ec;
-$red: #ff5d5a;
+$light-gray: #f7f7f7;
+$dark-gray:  #d7d7d7;
+$hover-blue: #738fb8;
+$near-black: #222222;
+$blue:       #2672ec;
+$red:        #ff5d5a;
+
+// Specific color codes, brought here for simplicity sake
+$top-nav-bg: $light-gray;
+$left-nav-bg: $deep-blue;
+
+@mixin navBg() {
+    background: #f9fafc;
+    background: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
+    background: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    background: linear-gradient(to right,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );
+}
+
+@mixin titleGrad() {
+    color: #f9fafc;
+    color: -moz-linear-gradient(top,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
+    color: -webkit-linear-gradient(top,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );   
+}
 
 body {
     margin: 0px 0px 0px 2px;
     /* set the base font and size for all DOM children */
-    font-family: sans-serif; 
-    font-size: 1em;  /* set the base font size for all DOM children */
+    font-family: "ubunturegular" !important; 
+    font-size: 12px;  /* set the base font size for all DOM children */
 }
+
 a {
     color: #0000cc;
     text-decoration: none;
@@ -158,9 +184,9 @@ a {
  *=============================================================*/
 .body_top       { background-color: $white; margin: 8px }      /* $top_bg_line */
 .bgcolor2       { background-color: $white; }                  /* $GLOBALS['style']['BGCOLOR2'] */
-.body_bottom    { background: url('../pic/aquabg.gif') repeat; margin: 8px }  /* $bottom_bg_line */
-.body_title     { background-color: $off-white; }               /* $title_bg_line */
-.body_nav       { background-color: $light-gray; }                  /* $nav_bg_line */
+.body_bottom    { background-color: $light-gray; margin: 8px }  /* $bottom_bg_line */
+.body_title     { background-color: $near-black; color: $white; }               /* $title_bg_line */
+.body_nav       { @include navBg(); padding: 0px 0px; }                  /* $nav_bg_line */
 .body_filler    { background-color: #f7f0d5; }                  /* $login_filler_line */
 .body_login     { background: url('../pic/aquabg.gif') repeat; } /* $login_body_line */
 .table_bg       { background-color: #ccc; }                     /* $table_bg */
@@ -307,6 +333,22 @@ table {
 }
 
 .body_title {
+    color: #f9fafc;
+    color: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
+    color: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+
+    a, .text, .title_bar_top {
+        color: #f9fafc;
+        color: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
+        color: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+        color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+    }
+
+    select {
+        color: $near-black !important;
+    }
+
     table {
         tr {
             td {
@@ -663,7 +705,7 @@ tr.odd, td.even {
     color: $white !important;
     display: block;
     float: left;
-    font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+    font-weight: 300;
     margin-right: 3px;
     padding-right: 10px; /* sliding doors padding */
     text-decoration: none;
@@ -673,6 +715,10 @@ tr.odd, td.even {
     span {
         display: block;
         // padding: 5px 0 5px 10px;
+    }
+
+    &:hover {
+        background: darken($blue, 15%)
     }
 }
 
@@ -727,11 +773,13 @@ a.disabled_button:hover {
 ul.tabNav { 
     margin: 0;
     padding: 0;
-    padding-top: 4px;
+    padding-top: 6px;
     float: left; 
     list-style: none; 
     width: 100%;
-    background:$blue;
+    background:#f7f7f7;
+    border-bottom: 1px solid #2a4e84;
+    font-size: 0.75rem;
 
     li {
         float: left; 
@@ -743,15 +791,23 @@ ul.tabNav {
 
     li.current { 
         a {
+            border-top: 3px solid #2a4e84;
+            border-left: 1px solid #2a4e84;
+            border-right: 1px solid #2a4e84;
             background: #ffffff;
             color: $blue;
         }
     }
 
-    a { 
-        color: $white; 
+    a {
+        position: relative;
+        bottom: -1px;
+        border-left: 1px solid #f7f7f7;
+        border-right: 1px solid #f7f7f7;
+        border-top: 3px solid #f7f7f7;
+        color: #888; 
         display: block; 
-        padding: 8px 17px; 
+        padding: 6px 17px; 
         text-decoration: none; 
 
         a:hover {
@@ -760,7 +816,11 @@ ul.tabNav {
     }
 }
 
-div.tabContainer { clear: both; float: left; width: 100%; }
+div.tabContainer { 
+    clear: both; 
+    float: left; 
+    width: 100%; 
+}
 div.tabContainer div.tab { border: 1px solid #ffffff; color: #000; display: none; padding: 10px; }
 div.tabContainer div.current { display: block; }
 div.tab {   min-height: 180px; background: #ffffff none repeat scroll 0 0; margin-bottom: 10px;width:665px;}
@@ -951,18 +1011,18 @@ font-size:9pt;
 #navigation-slide * {
     padding-left: 0px;
     margin-left: 0px;
-    font-size: 14px !important;
+    font-size: 0.75rem !important;
 
     li {
         list-style: none;
+        margin: 0px;
 
         a {
             background-color: none;
-            color: #000;
+            color: $near-black;
             display: block;
             font-size: 16px;
-            padding: 8px 0px 8px 0px;
-            border-bottom: 1px solid $dark-gray;
+            padding: 8px 0px 8px 8px;
             width: 100%;
 
             // Could put dropdown arrows here
@@ -970,7 +1030,8 @@ font-size:9pt;
             }
 
             &:hover {
-                background-color: $dark-gray;
+                background-color: $blue;
+                color: $white;
             }
 
             // Default closed tab
@@ -993,7 +1054,7 @@ font-size:9pt;
 
             // Opened top level
             &.expanded {
-                background: #cbe6f7;
+                // background: #cbe6f7;
             }
 
             &.expanded_lv2 {                
@@ -1015,7 +1076,7 @@ font-size:9pt;
         }
 
         ul li {
-            padding-left: 14px;
+            padding-left: 10px;
         }
     }
 }
