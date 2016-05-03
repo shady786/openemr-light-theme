@@ -1,56 +1,30 @@
+@import "bootstrap";
+
 @import "_fonts";
-
-// Site-wide color values
-$white:      #ffffff;
-$off-white:  #f4f4f4;
-$off-black:  #444444;
-$deep-blue:  #2a4e84;
-// $deep-blue: rgba(0,60,128,0.82);
-$light-blue: #CBE6F7;
-$light-gray: #f7f7f7;
-$dark-gray:  #d7d7d7;
-$hover-blue: #738fb8;
-$near-black: #222222;
-$blue:       #2672ec;
-$red:        #ff5d5a;
-
-// Specific color codes, brought here for simplicity sake
-$top-nav-bg: $light-gray;
-$left-nav-bg: $deep-blue;
-
-@mixin navBg() {
-    background: #f9fafc;
-    background: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
-    background: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
-    background: linear-gradient(to right,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );
-}
-
-@mixin titleGrad() {
-    color: #f9fafc;
-    color: -moz-linear-gradient(top,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
-    color: -webkit-linear-gradient(top,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
-    color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );   
-}
+@import "_variables";
+@import "_mixins";
 
 body {
-    margin: 0px 0px 0px 2px;
-    /* set the base font and size for all DOM children */
-    font-family: "ubunturegular" !important; 
-    font-size: 12px;  /* set the base font size for all DOM children */
+    margin: 0px;
+    font-family: $default-font-family;
+    font-size: $default-font-size;
 }
 
 a {
-    color: #0000cc;
+    color: $link-base-color;
     text-decoration: none;
 
     &:visited {
-        color: #0000cc;
+        color: $link-base-color;
     }
 
     &:hover {
-        color: #ff5555;
+        color: $link-hover-color;
+        text-decoration: none !important;
+    }
+
+    &:active {
+        border: none !important;
     }
 }
 
@@ -367,20 +341,20 @@ table {
     .groupname {
         font-weight: bold;
         color: #080;
-        font-size: 0.8em;
+        font-size: 0.95em;
         padding-right: 5px;
-        vertical-align: top;
     }
     .label {
-        font-weight: bold;
-        font-size: 0.8em;
-        vertical-align: top;
+        color: #a8a88a !important;
+        display: block;
+        font-size: 0.95em;
         text-align: right;
+        padding-right: 3px;
     }
     .data {
-        font-size: 0.8em;
-        vertical-align: top;
+        font-size: 0.95em;
         text-align: left;
+        color: $near-black;
         padding-right: 6px;/*30px - ie 6 fix*/
     }
 }
@@ -693,8 +667,18 @@ table {
     background-color:#ffffff;
 }
 
-tr.odd, td.even {
-    background-color: $white !important;
+tr.odd {
+    background-color: $table-row-odd-bg !important;
+    td.sorting_1 {
+        background-color: $table-row-odd-sort1 !important;
+    }
+}
+
+tr.even {
+    background-color: $table-row-even-bg !important;
+    td.sorting_1 {
+        background-color: $table-row-even-sort1 !important;
+    }
 }
 
 /*
@@ -779,7 +763,7 @@ ul.tabNav {
     width: 100%;
     background:#f7f7f7;
     border-bottom: 1px solid #2a4e84;
-    font-size: 0.75rem;
+    font-size: 0.75em;
 
     li {
         float: left; 
@@ -1011,7 +995,7 @@ font-size:9pt;
 #navigation-slide * {
     padding-left: 0px;
     margin-left: 0px;
-    font-size: 0.75rem !important;
+    font-size: 1em !important;
 
     li {
         list-style: none;
@@ -1032,6 +1016,7 @@ font-size:9pt;
             &:hover {
                 background-color: $blue;
                 color: $white;
+                text-decoration: none;
             }
 
             // Default closed tab

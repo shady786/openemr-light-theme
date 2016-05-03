@@ -1,0 +1,31 @@
+
+// Colors
+$white:                 #ffffff;
+$off-white:             #f4f4f4;
+$off-black:             #444444;
+$deep-blue:             #2a4e84;
+// $deep-blue:             rgba(0,60,128,0.82);
+$light-blue:            #CBE6F7;
+$light-gray:            #f7f7f7;
+$dark-gray:             #d7d7d7;
+$hover-blue:            #738fb8;
+$near-black:            #222222;
+$blue:                  #2672ec;
+$red:                   #ff5d5a;
+
+// Typography
+$default-font-family:   "ubunturegular" !default; 
+$default-font-size:     16px;
+
+// Links
+$link-base-color:       #0000cc;
+$link-hover-color:      #ff5555;
+
+$table-row-odd-bg:      #ffffff;
+$table-row-even-bg:     darken($table-row-odd-bg, 5%);
+$table-row-odd-sort1:   lighten($blue, 42%);
+$table-row-even-sort1:  lighten($blue, 40%);
+
+$top-nav-bg: $light-gray;
+$left-nav-bg: $deep-blue;
+
