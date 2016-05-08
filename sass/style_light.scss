@@ -13,6 +13,7 @@ body {
 a {
     color: $link-base-color;
     text-decoration: none;
+    outline: 0 !important;
 
     &:visited {
         color: $link-base-color;
@@ -159,7 +160,7 @@ a {
 .body_top       { background-color: $white; margin: 8px }      /* $top_bg_line */
 .bgcolor2       { background-color: $white; }                  /* $GLOBALS['style']['BGCOLOR2'] */
 .body_bottom    { background-color: $light-gray; margin: 8px }  /* $bottom_bg_line */
-.body_title     { background-color: $near-black; color: $white; }               /* $title_bg_line */
+.body_title     { background-color: $blue; color: $white; }               /* $title_bg_line */
 .body_nav       { @include navBg(); padding: 0px 0px; }                  /* $nav_bg_line */
 .body_filler    { background-color: #f7f0d5; }                  /* $login_filler_line */
 .body_login     { background: url('../pic/aquabg.gif') repeat; } /* $login_body_line */
@@ -171,6 +172,93 @@ a {
 .logobar        { background-color: #24262c; height: 110px; }   /* $GLOBALS['logoBarHeight'] */
 .navbar         { height: 22px; }                               /* $GLOBALS['navBarHeight'] */
 .titlebar       { height: 20px; }                               /* $GLOBALS['titleBarHeight'] */
+
+.body_title {
+    a#new0 {
+    }
+}
+
+#past_encounter select {
+    background: transparent;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid lighten($blue, 35%);
+    border-right: 1px solid lighten($blue, 35%);
+    color: $white !important;
+    display: block;
+    font-family: 'Source Sans Pro';
+    font-weight: 100;
+    height: 100%;
+    margin: 0px;
+    -webkit-appearance: button !important;
+    -moz-appearance: button !important;
+
+    &:active, &:focus {
+        outline: 0 !important;
+    }
+
+    option {
+        background: transparent;
+        color: $white !important;
+    }
+}
+
+.patient_summary_demographics {
+  margin: 0px;
+  padding: 0px;
+
+  section.title {
+    @include ptSummaryTitle();
+    display: block;
+    padding: 25px;
+    padding-bottom: 0px;
+    color: $white;
+    font-weight: 100;
+    
+    h2 {
+        // text-transform: uppercase;
+        display: inline-block;
+        font-family: 'Source Sans Pro';
+        font-weight: 100;
+        margin-bottom: 25px;
+    }
+
+    a[href*="deleter"] {
+        border: 1px solid $light-gray;
+        background-color: transparent !important;
+        color: $white !important;
+        font-size: 1.5rem;
+        float: right;
+
+        &:before {
+            // Add in a times symbol
+            // content: "";
+        }
+
+        &:hover {
+            background-color: $red !important;
+            color: $white !important;
+        }
+    }
+
+    nav {
+        font-size: 1.5rem;
+
+        a {
+            color: $white !important;
+            font-family: 'Source Sans Pro';
+
+            &:hover {
+                color: lighten($blue, 35%) !important;
+            }
+        }
+        padding-bottom: 5px;
+    }
+  }
+  .main {
+    margin-left: 25px;
+  }
+}
 
 
 /* style taken out of the addressbook code and put here instead */
@@ -330,6 +418,21 @@ table {
             }
         }
     }
+
+    #current_patient_block {
+        font-weight: 100;
+        .text {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        #current_patient {
+            color: rgba(255,255,255,0.85) !important;
+
+            b {
+                color: $white !important;
+                font-weight: 100;
+            }
+        }
+    }
 }
 
 /*=============================================================
@@ -361,7 +464,7 @@ table {
 
 /* Patient History */
 
-#HIS { 
+#HIS {
     .groupname {
         font-weight: bold;
         color: #080;
@@ -721,6 +824,10 @@ tr.even {
 
 input[type="button"][style="background-color:#ffff55"] {
     background: $blue !important;
+
+    &:hover {
+      background: darken($blue, 15%);
+    }
 }
 
 input[type="text"] {
@@ -737,6 +844,21 @@ input[type="text"] {
     span {
         display: none;
     }
+}
+
+#pt_table {
+  thead {
+    input.search_init {
+      width: 100%;
+    }
+  }
+  tr:hover {
+    td {
+        background-color: lighten($blue, 13%) !important;
+        color: $white;
+        cursor: pointer;
+    }
+  }
 }
 
 .sellistclass {
@@ -1021,19 +1143,21 @@ font-size:9pt;
 
             // Default closed tab
             &.collapsed {
-                
+
             }
 
             &.collapsed_lv2 {
                 &:before {
                     content: "&nbsp;";
-                    width: 0; 
-                    height: 0; 
+                    width: 0;
+                    height: 0;
                     border-bottom: 5px solid transparent;  /* left arrow slant */
                     border-top: 5px solid transparent; /* right arrow slant */
                     border-left: 5px solid #2f2f2f; /* bottom, add background color here */
                     font-size: 0;
-                    line-height: 10px;
+                    display: block;
+                    float: left;
+                    padding-right: 3px;
                 }
             }
 
@@ -1051,8 +1175,13 @@ font-size:9pt;
                     border-top: 5px solid transparent; /* right arrow slant */
                     border-left: 5px solid #2f2f2f; /* bottom, add background color here */
                     font-size: 0;
-                    line-height: 0px;
+                    display: block;
+                    float: left;
+                    padding-right: 3px;
                 }
+
+                display: block;
+
             }
 
             img {
@@ -1061,8 +1190,19 @@ font-size:9pt;
         }
 
         ul li {
-            padding-left: 10px;
+            padding-left: 0px;
+
+            a {
+              display: block;
+              padding-left: 25px;
+            }
         }
+    }
+}
+
+#allergy_ps_expand {
+    td:before {
+        content: '!';
     }
 }
 
