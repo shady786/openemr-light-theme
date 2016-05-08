@@ -157,7 +157,7 @@ a {
  * Here we have taken variables from globals.php and turned them into CSS classes 
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
-.body_top       { background-color: $white; margin: 8px }      /* $top_bg_line */
+.body_top       { background-color: $white; margin: 0px }      /* $top_bg_line */
 .bgcolor2       { background-color: $white; }                  /* $GLOBALS['style']['BGCOLOR2'] */
 .body_bottom    { background-color: $light-gray; margin: 8px }  /* $bottom_bg_line */
 .body_title     { background-color: $blue; color: $white; }               /* $title_bg_line */
@@ -209,6 +209,7 @@ a {
 
   section.title {
     @include ptSummaryTitle();
+    color: $white !important;
     display: block;
     padding: 25px;
     padding-bottom: 0px;
@@ -253,6 +254,10 @@ a {
             }
         }
         padding-bottom: 5px;
+    }
+
+    table tr td {
+        color: $white !important;
     }
   }
   .main {

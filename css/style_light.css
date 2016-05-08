@@ -5940,7 +5940,7 @@ a {
   color: #000000; }
 
 /*=============================================================
- * Here we have taken variables from globals.php and turned them into CSS classes
+ * Here we have taken variables from globals.php and turned them into CSS classes 
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
 .body_top {
@@ -6040,6 +6040,7 @@ a {
     background: -moz-linear-gradient(top, #555555 0%, #777777 100%);
     background: -webkit-linear-gradient(top, #555555 0%, #777777 100%);
     background: linear-gradient(to bottom, #555555 0%, #777777 100%);
+    color: #ffffff !important;
     display: block;
     padding: 25px;
     padding-bottom: 0px;
@@ -6067,6 +6068,8 @@ a {
         font-family: 'Source Sans Pro'; }
         .patient_summary_demographics section.title nav a:hover {
           color: #a9cff5 !important; }
+    .patient_summary_demographics section.title table tr td {
+      color: #ffffff !important; }
   .patient_summary_demographics .main {
     margin-left: 25px; }
 
