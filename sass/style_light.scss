@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-@import "_fonts";
+@import "_source-sans-pro";
 @import "_variables";
 @import "_mixins";
 
@@ -8,12 +8,14 @@ body {
     margin: 0px;
     font-family: $default-font-family;
     font-size: $default-font-size;
+    font-weight: $default-font-weight;
 }
 
-a {
+a, a:active {
     color: $link-base-color;
-    text-decoration: none;
-    outline: 0 !important;
+    text-decoration: none !important;
+    // outline: 0 !important;
+    // border: none;
 
     &:visited {
         color: $link-base-color;
@@ -25,7 +27,7 @@ a {
     }
 
     &:active {
-        border: none !important;
+        outline: none !important;
     }
 }
 
@@ -221,10 +223,10 @@ a {
         display: inline-block;
         font-family: 'Source Sans Pro';
         font-weight: 100;
-        margin-bottom: 25px;
+        margin: 5px 0px 15px 0px;
     }
 
-    a[href*="deleter"] {
+    a.css_button {
         border: 1px solid $light-gray;
         background-color: transparent !important;
         color: $white !important;
@@ -236,14 +238,27 @@ a {
             // content: "";
         }
 
-        &:hover {
+        &[href*="deleter"]:hover {
             background-color: $red !important;
             color: $white !important;
         }
+
+        &:hover {
+            background-color: rgba(255,255,255,0.15) !important;
+        }
+    }
+
+    small, .small {
+        font-size: 1.25rem !important;
+    }
+
+    .deceased {
+        text-transform: capitalize !important;
     }
 
     nav {
         font-size: 1.5rem;
+        margin-top: 15px;
 
         a {
             color: $white !important;
@@ -453,17 +468,38 @@ table {
         padding-right: 5px;
     }
     .label {
-        color: #a8a88a !important;
+        color: lighten($near-black, 40%) !important;
         display: block;
-        font-size: 0.95em;
+        font-size: 1em;
+        font-weight: 400;
         text-align: right;
         padding-right: 3px;
+        padding-bottom: 5px !important;
     }
     .data {
-        font-size: 0.95em;
+        font-size: 1em;
+        font-weight: 400;
+        padding-bottom: 5px !important;
         text-align: left;
         color: $near-black;
         padding-right: 6px;/*30px - ie 6 fix*/
+    }
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    border: 1px solid $near-black;
+    background: $white;
+    color: $near-black;
+    padding: 2px;
+
+    &:after {
+        content: "HELLO";
+    }
+
+    option {
+        color: $near-black !important;
     }
 }
 
@@ -857,7 +893,7 @@ input[type="text"] {
       width: 100%;
     }
   }
-  tr:hover {
+  tbody tr:hover {
     td {
         background-color: lighten($blue, 13%) !important;
         color: $white;
@@ -890,7 +926,7 @@ ul.tabNav {
     width: 100%;
     background:#f7f7f7;
     border-bottom: 1px solid #2a4e84;
-    font-size: 0.75em;
+    font-size: 0.90em;
 
     li {
         float: left; 
@@ -920,10 +956,6 @@ ul.tabNav {
         display: block; 
         padding: 6px 17px; 
         text-decoration: none; 
-
-        a:hover {
-
-        }
     }
 }
 
@@ -1122,7 +1154,7 @@ font-size:9pt;
 #navigation-slide * {
     padding-left: 0px;
     margin-left: 0px;
-    font-size: 1em !important;
+    font-size: 1.1rem !important;
 
     li {
         list-style: none;
