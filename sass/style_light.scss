@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-@import "_fonts";
+@import "_source-sans-pro";
 @import "_variables";
 @import "_mixins";
 
@@ -8,11 +8,14 @@ body {
     margin: 0px;
     font-family: $default-font-family;
     font-size: $default-font-size;
+    font-weight: $default-font-weight;
 }
 
-a {
+a, a:active {
     color: $link-base-color;
-    text-decoration: none;
+    text-decoration: none !important;
+    // outline: 0 !important;
+    // border: none;
 
     &:visited {
         color: $link-base-color;
@@ -24,7 +27,7 @@ a {
     }
 
     &:active {
-        border: none !important;
+        outline: none !important;
     }
 }
 
@@ -156,10 +159,10 @@ a {
  * Here we have taken variables from globals.php and turned them into CSS classes 
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
-.body_top       { background-color: $white; margin: 8px }      /* $top_bg_line */
+.body_top       { background-color: $white; margin: 0px }      /* $top_bg_line */
 .bgcolor2       { background-color: $white; }                  /* $GLOBALS['style']['BGCOLOR2'] */
 .body_bottom    { background-color: $light-gray; margin: 8px }  /* $bottom_bg_line */
-.body_title     { background-color: $near-black; color: $white; }               /* $title_bg_line */
+.body_title     { background-color: $blue; color: $white; }               /* $title_bg_line */
 .body_nav       { @include navBg(); padding: 0px 0px; }                  /* $nav_bg_line */
 .body_filler    { background-color: #f7f0d5; }                  /* $login_filler_line */
 .body_login     { background: url('../pic/aquabg.gif') repeat; } /* $login_body_line */
@@ -171,6 +174,111 @@ a {
 .logobar        { background-color: #24262c; height: 110px; }   /* $GLOBALS['logoBarHeight'] */
 .navbar         { height: 22px; }                               /* $GLOBALS['navBarHeight'] */
 .titlebar       { height: 20px; }                               /* $GLOBALS['titleBarHeight'] */
+
+.body_title {
+    a#new0 {
+    }
+}
+
+#past_encounter select {
+    background: transparent;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid lighten($blue, 35%);
+    border-right: 1px solid lighten($blue, 35%);
+    color: $white !important;
+    display: block;
+    font-family: 'Source Sans Pro';
+    font-weight: 100;
+    height: 100%;
+    margin: 0px;
+    -webkit-appearance: button !important;
+    -moz-appearance: button !important;
+
+    &:active, &:focus {
+        outline: 0 !important;
+    }
+
+    option {
+        background: transparent;
+        color: $white !important;
+    }
+}
+
+.patient_summary_demographics {
+  margin: 0px;
+  padding: 0px;
+
+  section.title {
+    @include ptSummaryTitle();
+    color: $white !important;
+    display: block;
+    padding: 25px;
+    padding-bottom: 0px;
+    color: $white;
+    font-weight: 100;
+    
+    h2 {
+        // text-transform: uppercase;
+        display: inline-block;
+        font-family: 'Source Sans Pro';
+        font-weight: 100;
+        margin: 5px 0px 15px 0px;
+    }
+
+    a.css_button {
+        border: 1px solid $light-gray;
+        background-color: transparent !important;
+        color: $white !important;
+        font-size: 1.5rem;
+        float: right;
+
+        &:before {
+            // Add in a times symbol
+            // content: "";
+        }
+
+        &[href*="deleter"]:hover {
+            background-color: $red !important;
+            color: $white !important;
+        }
+
+        &:hover {
+            background-color: rgba(255,255,255,0.15) !important;
+        }
+    }
+
+    small, .small {
+        font-size: 1.25rem !important;
+    }
+
+    .deceased {
+        text-transform: capitalize !important;
+    }
+
+    nav {
+        font-size: 1.5rem;
+        margin-top: 15px;
+
+        a {
+            color: $white !important;
+            font-family: 'Source Sans Pro';
+
+            &:hover {
+                color: lighten($blue, 35%) !important;
+            }
+        }
+        padding-bottom: 5px;
+    }
+
+    table tr td {
+        color: $white !important;
+    }
+  }
+  .main {
+    margin-left: 25px;
+  }
+}
 
 
 /* style taken out of the addressbook code and put here instead */
@@ -330,6 +438,21 @@ table {
             }
         }
     }
+
+    #current_patient_block {
+        font-weight: 100;
+        .text {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        #current_patient {
+            color: rgba(255,255,255,0.85) !important;
+
+            b {
+                color: $white !important;
+                font-weight: 100;
+            }
+        }
+    }
 }
 
 /*=============================================================
@@ -345,23 +468,44 @@ table {
         padding-right: 5px;
     }
     .label {
-        color: #a8a88a !important;
+        color: lighten($near-black, 40%) !important;
         display: block;
-        font-size: 0.95em;
+        font-size: 1em;
+        font-weight: 400;
         text-align: right;
         padding-right: 3px;
+        padding-bottom: 5px !important;
     }
     .data {
-        font-size: 0.95em;
+        font-size: 1em;
+        font-weight: 400;
+        padding-bottom: 5px !important;
         text-align: left;
         color: $near-black;
         padding-right: 6px;/*30px - ie 6 fix*/
     }
 }
 
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    border: 1px solid $near-black;
+    background: $white;
+    color: $near-black;
+    padding: 2px;
+
+    &:after {
+        content: "HELLO";
+    }
+
+    option {
+        color: $near-black !important;
+    }
+}
+
 /* Patient History */
 
-#HIS { 
+#HIS {
     .groupname {
         font-weight: bold;
         color: #080;
@@ -721,6 +865,10 @@ tr.even {
 
 input[type="button"][style="background-color:#ffff55"] {
     background: $blue !important;
+
+    &:hover {
+      background: darken($blue, 15%);
+    }
 }
 
 input[type="text"] {
@@ -737,6 +885,21 @@ input[type="text"] {
     span {
         display: none;
     }
+}
+
+#pt_table {
+  thead {
+    input.search_init {
+      width: 100%;
+    }
+  }
+  tbody tr:hover {
+    td {
+        background-color: lighten($blue, 13%) !important;
+        color: $white;
+        cursor: pointer;
+    }
+  }
 }
 
 .sellistclass {
@@ -763,7 +926,7 @@ ul.tabNav {
     width: 100%;
     background:#f7f7f7;
     border-bottom: 1px solid #2a4e84;
-    font-size: 0.75em;
+    font-size: 0.90em;
 
     li {
         float: left; 
@@ -793,10 +956,6 @@ ul.tabNav {
         display: block; 
         padding: 6px 17px; 
         text-decoration: none; 
-
-        a:hover {
-
-        }
     }
 }
 
@@ -995,7 +1154,7 @@ font-size:9pt;
 #navigation-slide * {
     padding-left: 0px;
     margin-left: 0px;
-    font-size: 1em !important;
+    font-size: 1.1rem !important;
 
     li {
         list-style: none;
@@ -1021,19 +1180,21 @@ font-size:9pt;
 
             // Default closed tab
             &.collapsed {
-                
+
             }
 
             &.collapsed_lv2 {
                 &:before {
                     content: "&nbsp;";
-                    width: 0; 
-                    height: 0; 
+                    width: 0;
+                    height: 0;
                     border-bottom: 5px solid transparent;  /* left arrow slant */
                     border-top: 5px solid transparent; /* right arrow slant */
                     border-left: 5px solid #2f2f2f; /* bottom, add background color here */
                     font-size: 0;
-                    line-height: 10px;
+                    display: block;
+                    float: left;
+                    padding-right: 3px;
                 }
             }
 
@@ -1051,8 +1212,13 @@ font-size:9pt;
                     border-top: 5px solid transparent; /* right arrow slant */
                     border-left: 5px solid #2f2f2f; /* bottom, add background color here */
                     font-size: 0;
-                    line-height: 0px;
+                    display: block;
+                    float: left;
+                    padding-right: 3px;
                 }
+
+                display: block;
+
             }
 
             img {
@@ -1061,8 +1227,19 @@ font-size:9pt;
         }
 
         ul li {
-            padding-left: 10px;
+            padding-left: 0px;
+
+            a {
+              display: block;
+              padding-left: 25px;
+            }
         }
+    }
+}
+
+#allergy_ps_expand {
+    td:before {
+        content: '!';
     }
 }
 

@@ -13,3 +13,11 @@
     color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );   
 }
+
+@mixin ptSummaryTitle() {
+    background: $gray;
+    background: -moz-linear-gradient(top, $gray 0%, lighten($gray, 13%) 100%);
+    background: -webkit-linear-gradient(top, $gray 0%, lighten($gray, 13%) 100%);
+    background: linear-gradient(to bottom, $gray 0%, lighten($gray, 13%) 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );
+}
