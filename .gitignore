@@ -3,3 +3,4 @@ bower_components/*
 !bower_components/.gitkeep
 node_modules/*
 !node_modules/.gitkeep
+themes
