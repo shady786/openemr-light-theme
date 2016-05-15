@@ -4,6 +4,8 @@
 @import "_variables";
 @import "_mixins";
 
+@import "_calendar";
+
 body {
     margin: 0px;
     font-family: $default-font-family;
@@ -14,7 +16,7 @@ body {
 a, a:active {
     color: $link-base-color;
     text-decoration: none !important;
-    // outline: 0 !important;
+    outline: 0 !important;
     // border: none;
 
     &:visited {
@@ -24,6 +26,7 @@ a, a:active {
     &:hover {
         color: $link-hover-color;
         text-decoration: none !important;
+        outline: 0;
     }
 
     &:active {
@@ -156,7 +159,7 @@ a, a:active {
 }
 
 /*=============================================================
- * Here we have taken variables from globals.php and turned them into CSS classes 
+ * Here we have taken variables from globals.php and turned them into CSS classes
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
 .body_top       { background-color: $white; margin: 0px }      /* $top_bg_line */
@@ -188,7 +191,7 @@ a, a:active {
     border-right: 1px solid lighten($blue, 35%);
     color: $white !important;
     display: block;
-    font-family: 'Source Sans Pro';
+    font-family: 'source_sans_pro';
     font-weight: 100;
     height: 100%;
     margin: 0px;
@@ -205,47 +208,53 @@ a, a:active {
     }
 }
 
-.patient_summary_demographics {
+.patient_file-summary-demographics {
   margin: 0px;
   padding: 0px;
 
-  section.title {
+  table.table_header {
     @include ptSummaryTitle();
     color: $white !important;
     display: block;
-    padding: 25px;
+    padding: 25px !important;
     padding-bottom: 0px;
     color: $white;
     font-weight: 100;
-    
-    h2 {
-        // text-transform: uppercase;
-        display: inline-block;
-        font-family: 'Source Sans Pro';
-        font-weight: 100;
-        margin: 5px 0px 15px 0px;
+    width: 100%;
+
+    td.delete {
+      float: right;
+    }
+
+    span.title {
+      @extend h2;
+      text-transform: uppercase;
+      display: inline-block;
+      font-family: 'source_sans_pro' !important;
+      font-weight: 100;
+      margin: 5px 0px 15px 0px;
     }
 
     a.css_button {
-        border: 1px solid $light-gray;
-        background-color: transparent !important;
-        color: $white !important;
-        font-size: 1.5rem;
-        float: right;
+      border: 1px solid $light-gray;
+      background-color: transparent !important;
+      color: $white !important;
+      font-size: 1em !important;
+      float: right;
 
-        &:before {
-            // Add in a times symbol
-            // content: "";
-        }
+      &:before {
+          // Add in a times symbol
+          // content: "";
+      }
 
-        &[href*="deleter"]:hover {
-            background-color: $red !important;
-            color: $white !important;
-        }
+      &[href*="deleter"]:hover {
+          background-color: $red !important;
+          color: $white !important;
+      }
 
-        &:hover {
-            background-color: rgba(255,255,255,0.15) !important;
-        }
+      &:hover {
+          background-color: rgba(255,255,255,0.15) !important;
+      }
     }
 
     small, .small {
@@ -254,32 +263,72 @@ a, a:active {
 
     .deceased {
         text-transform: capitalize !important;
-    }
-
-    nav {
-        font-size: 1.5rem;
-        margin-top: 15px;
-
-        a {
-            color: $white !important;
-            font-family: 'Source Sans Pro';
-
-            &:hover {
-                color: lighten($blue, 35%) !important;
-            }
-        }
-        padding-bottom: 5px;
+        color: $white;
     }
 
     table tr td {
         color: $white !important;
     }
   }
+
+  table.subnav {
+    background: lighten($gray, 13%) !important;
+    color: $white !important;
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 15px 25px !important;
+
+    a {
+      color: $white !important;
+      font-family: 'source_sans_pro';
+
+      &:hover {
+        color: lighten($blue, 35%) !important;
+      }
+    }
+
+    .small {
+      color: $white;
+    }
+  }
+
   .main {
-    margin-left: 25px;
+    margin-left: 25px !important;
   }
 }
 
+.main-calendar-add_edit_event {
+  table {
+    width: 95%;
+    margin: 0px;
+    padding: 0px;
+    table {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+
+      tr {
+        td {
+          width: 25%;
+          &:first-child() {
+            text-align: right;
+            // color: $dark-gray;
+            padding-right: 3px;
+
+            b {
+              font-weight: 400;
+            }
+          }
+          &:nth-child(3) {
+            text-align: right;
+          }
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+}
 
 /* style taken out of the addressbook code and put here instead */
 #addressbook_list {
@@ -321,7 +370,7 @@ a, a:active {
     .button {
         font-family:sans-serif;
         font-size:8pt;
-        font-weight:bold;        
+        font-weight:bold;
     }
 }
 
@@ -352,7 +401,7 @@ a, a:active {
 #documents_list {
     width: 29%;
     height: 95%;
-    overflow: auto; 
+    overflow: auto;
     float: left;
     border-right: dashed 1px;
 
@@ -385,8 +434,8 @@ a, a:active {
 
     iframe {
         display: inline;
-        border:none; 
-        width:100%; 
+        border:none;
+        width:100%;
         height:600px;
         overflow: auto;
     }
@@ -394,7 +443,7 @@ a, a:active {
     form {
         margin: 0px; padding: 0px;
     }
-    
+
     table {
         width: 100%;
         height: 95%;
@@ -468,7 +517,7 @@ table {
         padding-right: 5px;
     }
     .label {
-        color: lighten($near-black, 40%) !important;
+        color: $near-black !important;
         display: block;
         font-size: 1em;
         font-weight: 400;
@@ -515,6 +564,7 @@ select {
         height: 2em;
     }
     .label {
+        color: $near-black !important;
         font-weight: bold;
         font-size: 9pt;
         vertical-align: top;
@@ -534,7 +584,7 @@ select {
  *============================================================*/
 #pnotes {
     .billing {
-        background-color: #dfd;  
+        background-color: #dfd;
     }
 
     .highlight {
@@ -546,7 +596,7 @@ select {
     }
 
     .noterow {
-        cursor: pointer; 
+        cursor: pointer;
 
         td {
             border-bottom:1px dashed black;
@@ -719,7 +769,7 @@ select {
     ul {
         list-style: none;
     }
-}   
+}
 
 /*=============================================================
  * Report - Custom
@@ -898,6 +948,7 @@ input[type="text"] {
         background-color: lighten($blue, 13%) !important;
         color: $white;
         cursor: pointer;
+        font-weight: 700;
     }
   }
 }
@@ -917,26 +968,26 @@ a.disabled_button:hover {
 /*
  * TABS
 */
-ul.tabNav { 
+ul.tabNav {
     margin: 0;
     padding: 0;
     padding-top: 6px;
-    float: left; 
-    list-style: none; 
+    float: left;
+    list-style: none;
     width: 100%;
     background:#f7f7f7;
     border-bottom: 1px solid #2a4e84;
     font-size: 0.90em;
 
     li {
-        float: left; 
-        margin: 0px; 
+        float: left;
+        margin: 0px;
         padding: 0px 4px;
         vertical-align: bottom;
         text-align: left;
     }
 
-    li.current { 
+    li.current {
         a {
             border-top: 3px solid #2a4e84;
             border-left: 1px solid #2a4e84;
@@ -952,17 +1003,17 @@ ul.tabNav {
         border-left: 1px solid #f7f7f7;
         border-right: 1px solid #f7f7f7;
         border-top: 3px solid #f7f7f7;
-        color: #888; 
-        display: block; 
-        padding: 6px 17px; 
-        text-decoration: none; 
+        color: #888;
+        display: block;
+        padding: 6px 17px;
+        text-decoration: none;
     }
 }
 
-div.tabContainer { 
-    clear: both; 
-    float: left; 
-    width: 100%; 
+div.tabContainer {
+    clear: both;
+    float: left;
+    width: 100%;
 }
 div.tabContainer div.tab { border: 1px solid #ffffff; color: #000; display: none; padding: 10px; }
 div.tabContainer div.current { display: block; }
@@ -990,12 +1041,22 @@ div.notab-right {
     background: #FFFFFF none repeat scroll 0 0; margin-bottom: 10px; width:100%;
 }
 
-.section-header {
-    margin-bottom:5px; width:685px; border-bottom: 1px solid;
-}
-
+.section-header,
 .section-header-dynamic {
-    margin-bottom:5px; border-bottom: 1px solid;
+  display: block;
+  border-bottom: 1px solid $dark-gray;
+  color: $blue !important;
+  padding: 5px 0px;
+  margin-bottom:5px;
+
+  .small {
+    .text {
+      b {
+        color: $near-black;
+        font-weight: 600;
+      }
+    }
+  }
 }
 
 .summary_item {
@@ -1111,15 +1172,15 @@ font-size:9pt;
     padding: 10px 10px 10px 15px;
     color: black;
   }
-.alertmsg1 { 
+.alertmsg1 {
     border: 3px solid #fe7b7a;
     background-color: #ffd6d6 ;
   }
-.alertmsg2 { 
+.alertmsg2 {
     border: 3px solid #f56fff;
     background-color: #fabfff;
   }
-.alertmsg3 { 
+.alertmsg3 {
     border: 3px solid #9acc2e;
     background-color: #eef7dd;
   }
@@ -1154,7 +1215,7 @@ font-size:9pt;
 #navigation-slide * {
     padding-left: 0px;
     margin-left: 0px;
-    font-size: 1.1rem !important;
+    // font-size: 1em !important;
 
     li {
         list-style: none;
@@ -1164,7 +1225,7 @@ font-size:9pt;
             background-color: none;
             color: $near-black;
             display: block;
-            font-size: 16px;
+            font-size: $default-font-size !important;
             padding: 8px 0px 8px 8px;
             width: 100%;
 
@@ -1203,11 +1264,11 @@ font-size:9pt;
                 // background: #cbe6f7;
             }
 
-            &.expanded_lv2 {                
+            &.expanded_lv2 {
                 &:before {
                     content: "&nbsp;";
-                    width: 0; 
-                    height: 0; 
+                    width: 0;
+                    height: 0;
                     border-right: 5px solid transparent;  /* left arrow slant */
                     border-top: 5px solid transparent; /* right arrow slant */
                     border-left: 5px solid #2f2f2f; /* bottom, add background color here */
@@ -1271,7 +1332,7 @@ font-size:9pt;
         margin: 0;
         padding: 0;
         background: $light-gray;
-        
+
         a {
             position: relative;
             display: block;
