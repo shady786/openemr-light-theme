@@ -1,6 +1,7 @@
-var gulp = require('gulp'), 
-    sass = require('gulp-sass') ,
-    notify = require("gulp-notify") ,
+var gulp = require('gulp'),
+    compass = require('gulp-compass'),
+    sass = require('gulp-sass'),
+    notify = require("gulp-notify"),
     bower = require('gulp-bower'),
     gulpCopy = require('gulp-copy');
 
@@ -15,21 +16,21 @@ gulp.task('bower', function() { 
   return bower().pipe(gulp.dest(config.bowerDir)) 
 });
 
-gulp.task('css', function(cb) { 
-  options = {
-    includePaths: [
-      './sass',
+gulp.task('compass', function(cb){
+  var options = {
+    config_file: './config.rb',
+    import_path: [
       config.bowerDir + '/bootstrap-sass/assets/stylesheets',
       config.bowerDir + '/font-awesome/scss'
     ]
   };
   var stream = gulp.src(config.sassPath+'/*.scss')
-    .pipe(sass(options).on('error', sass.logError))
+    .pipe(compass(options).on('error', sass.logError))
     .pipe(gulp.dest(config.outputPath));
   return stream;
 });
 
-gulp.task('copy', ['css'], function() {
+gulp.task('copy', ['compass'], function() {
   var stream = gulp.src(config.outputPath+'/style_light.css')
     .pipe(gulpCopy(config.openEMRInstallPath, {prefix: 1}));
   return stream;
@@ -37,7 +38,7 @@ gulp.task('copy', ['css'], function() {
 
 // Rerun the task when a file changes
  gulp.task('watch', function() {
-  gulp.watch(config.sassPath + '/**/*.scss', ['css', 'copy']);
+  gulp.watch(config.sassPath + '/**/*.scss', ['compass', 'copy']);
 });
 
-  gulp.task('default', ['bower', 'css', 'copy']);
+gulp.task('default', ['bower', 'compass', 'copy']);

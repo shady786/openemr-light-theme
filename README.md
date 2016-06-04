@@ -5,15 +5,12 @@ This is a modern theme for the OpenEMR project. It uses the Bootstrap framework 
 ## Installing
 This repo contains the various components needed to build a final
 style\_light.css. To install into a working OpenEMR instance you can either
-download a zipped release from the releases page or clone the repo locally and build yourself. Once you have the style\_light.css place it in <openemr_base_dir>/interface/themes/ directory.
+download a zipped release from the releases page or clone the repo locally and build yourself. Once you have the style\_light.css, place it in <openemr_base_dir>/interface/themes/ directory.
 
 ## Building
-OpenEMR Light Theme uses [GulpJS](http://gulpjs.com) to build the final output
-and [Bower](http://bower.io/) manage dependencies. You do not need to be familiar
-with these to build the final css, but they must be installed.
+OpenEMR Light Theme uses [GulpJS](http://gulpjs.com) to build the final output and [Bower](http://bower.io/) manage dependencies. You do not need to be familiar with these to build the final css, but they must be installed.
 
 ### Steps to build
-[Install Node](https://nodejs.org/download/)
 
     $ git clone git@github.com:robertdown/openemr-light-theme.git .
     $ cd openemr-light-theme

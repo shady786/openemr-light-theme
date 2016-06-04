@@ -1,0 +1,108 @@
+@import "animate";
+
+@include animate-bounce($class:true);
+
+.patient-demographics {
+  margin: 0px;
+  padding: 0px !important; // Override the standard padding
+
+  table.table_header {
+    @include ptSummaryTitle($gray);
+    color: $white !important;
+    display: block;
+    padding: 25px !important;
+    padding-bottom: 0px;
+    color: $white;
+    font-weight: 100;
+    width: 100%;
+
+    td.delete {
+      // float: right;
+    }
+
+    td.erx {
+      // display: block;
+      // float: right;
+    }
+
+    span.title {
+      @extend h2;
+      display: inline-block;
+      font-family: 'source_sans_pro' !important;
+      font-weight: 100;
+      margin: 5px 0px 15px 0px;
+    }
+
+    a.css_button {
+      border: 1px solid $light-gray;
+      background-color: transparent !important;
+      color: $white !important;
+      font-size: 1em !important;
+      float: right;
+
+      &:before {
+          // Add in a times symbol
+          // content: "";
+      }
+
+      &[href*="deleter"]:hover {
+          background-color: $red !important;
+          color: $white !important;
+      }
+
+      &:hover {
+          background-color: rgba(255,255,255,0.15) !important;
+      }
+    }
+
+    small, .small {
+        font-size: 1.25rem !important;
+    }
+
+    .deceased {
+        &:before {
+          content: '\f06a';
+          font-family: 'FontAwesome';
+        }
+        @extend .bounceIn;
+        background: $red;
+        color: $white;
+        display: block;
+        font-weight: 800;
+        margin-left: 15px;
+        padding: 15px 10px;
+        text-align: center;
+        text-transform: capitalize !important;
+    }
+
+    table tr td {
+        color: $white !important;
+    }
+  }
+
+  table.subnav {
+    background: lighten($gray, 13%) !important;
+    color: $white !important;
+    display: block;
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 15px 25px !important;
+
+    a {
+      color: $white !important;
+      font-family: 'source_sans_pro';
+
+      &:hover {
+        color: lighten($blue, 35%) !important;
+      }
+    }
+
+    .small {
+      color: $white;
+    }
+  }
+
+  .main {
+    margin-left: 25px !important;
+  }
+}

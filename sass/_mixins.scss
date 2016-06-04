@@ -14,10 +14,10 @@
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );
 }
 
-@mixin ptSummaryTitle() {
-    background: $gray !important;
-    background: -moz-linear-gradient(top, $gray 0%, lighten($gray, 13%) 100%) !important;
-    background: -webkit-linear-gradient(top, $gray 0%, lighten($gray, 13%) 100%) !important;
-    background: linear-gradient(to bottom, $gray 0%, lighten($gray, 13%) 100%) !important;
+@mixin ptSummaryTitle($color) {
+    background: $color !important;
+    background: -moz-linear-gradient(top, $color 0%, lighten($color, 13%) 100%) !important;
+    background: -webkit-linear-gradient(top, $color 0%, lighten($color, 13%) 100%) !important;
+    background: linear-gradient(to bottom, $color 0%, lighten($color, 13%) 100%) !important;
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fafc', endColorstr='#f3f5f9',GradientType=1 );
 }

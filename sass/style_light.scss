@@ -1,9 +1,11 @@
 @import "_variables";
 @import "bootstrap";
-@import "_source-sans-pro";
+@import "fonts/source-sans-pro";
 @import "_mixins";
 
 @import "_calendar";
+// @import "patient/history";
+@import "patient/demographics";
 
 body {
     margin: 0px;
@@ -138,7 +140,7 @@ a, a:active {
 }
 
 .title {
-    font-family: 'ubunturegular' !important;
+    font-family: 'source_sans_pro' !important;
     font-size: 1.5em;
 }
 
@@ -147,21 +149,25 @@ a, a:active {
     font-size: 12pt;
     font-weight: bold;
     text-decoration: none;
-    color: #000000;
+    // color: #000000;
 }
 
 .title_bar_top {
     font-size: 13px;
     font-weight: bold;
     text-decoration: none;
-    color: #000000;
+    // color: #000000;
 }
 
 /*=============================================================
  * Here we have taken variables from globals.php and turned them into CSS classes
  * these should be used in place of the GLOBAL variables -- JRM March 2008
  *=============================================================*/
-.body_top       { background-color: $white; margin: 0px }      /* $top_bg_line */
+.body_top {
+  background-color: $white;
+  margin: 0px;
+  padding: 25px;
+} /* $top_bg_line */
 .bgcolor2       { background-color: $white; }                  /* $GLOBALS['style']['BGCOLOR2'] */
 .body_bottom    { background-color: $light-gray; margin: 8px }  /* $bottom_bg_line */
 .body_title     { background-color: $blue; color: $white; }               /* $title_bg_line */
@@ -207,96 +213,6 @@ a, a:active {
     }
 }
 
-.patient_file-summary-demographics {
-  margin: 0px;
-  padding: 0px;
-
-  table.table_header {
-    @include ptSummaryTitle();
-    color: $white !important;
-    display: block;
-    padding: 25px !important;
-    padding-bottom: 0px;
-    color: $white;
-    font-weight: 100;
-    width: 100%;
-
-    td.delete {
-      float: right;
-    }
-
-    span.title {
-      @extend h2;
-      text-transform: uppercase;
-      display: inline-block;
-      font-family: 'source_sans_pro' !important;
-      font-weight: 100;
-      margin: 5px 0px 15px 0px;
-    }
-
-    a.css_button {
-      border: 1px solid $light-gray;
-      background-color: transparent !important;
-      color: $white !important;
-      font-size: 1em !important;
-      float: right;
-
-      &:before {
-          // Add in a times symbol
-          // content: "";
-      }
-
-      &[href*="deleter"]:hover {
-          background-color: $red !important;
-          color: $white !important;
-      }
-
-      &:hover {
-          background-color: rgba(255,255,255,0.15) !important;
-      }
-    }
-
-    small, .small {
-        font-size: 1.25rem !important;
-    }
-
-    .deceased {
-        text-transform: capitalize !important;
-        color: $white;
-    }
-
-    table tr td {
-        color: $white !important;
-    }
-  }
-
-  table.subnav {
-    background: lighten($gray, 13%) !important;
-    color: $white !important;
-    display: block;
-    width: 100%;
-    font-size: 1.8rem;
-    padding: 15px 25px !important;
-
-    a {
-      color: $white !important;
-      font-family: 'source_sans_pro';
-
-      &:hover {
-        color: lighten($blue, 35%) !important;
-      }
-    }
-
-    .small {
-      color: $white;
-    }
-  }
-
-  .main {
-    margin-left: 25px !important;
-  }
-}
-
 .main-calendar-add_edit_event {
   table {
     width: 95%;
@@ -310,15 +226,15 @@ a, a:active {
       tr {
         td {
           width: 25%;
-          &:first-child() {
-            text-align: right;
-            // color: $dark-gray;
-            padding-right: 3px;
+          // &:first-child() {
+          //   text-align: right;
+          //   // color: $dark-gray;
+          //   padding-right: 3px;
 
-            b {
-              font-weight: 400;
-            }
-          }
+          //   b {
+          //     font-weight: 400;
+          //   }
+          // }
           &:nth-child(3) {
             text-align: right;
           }
@@ -469,10 +385,10 @@ table {
     color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
 
     a, .text, .title_bar_top {
-        color: #f9fafc;
-        color: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%);
-        color: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
-        color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%);
+        color: #f9fafc !important;
+        color: -moz-linear-gradient(left,  #f9fafc 0%, #f6f8fb 50%, #f3f5f9 100%) !important;
+        color: -webkit-linear-gradient(left,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%) !important;
+        color: linear-gradient(to bottom,  #f9fafc 0%,#f6f8fb 50%,#f3f5f9 100%) !important;
     }
 
     select {
@@ -519,10 +435,10 @@ table {
         color: $near-black !important;
         display: block;
         font-size: 1em;
-        font-weight: 400;
+        font-weight: 600;
         text-align: right;
         padding-right: 3px;
-        padding-bottom: 5px !important;
+        // padding-bottom: 5px !important;
     }
     .data {
         font-size: 1em;
